@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-	namespace =  BuildConfig.latestMovies
+	namespace = BuildConfig.searchMovies
 	compileSdk = BuildConfig.compileSdkVersion
 
 	defaultConfig {
@@ -45,9 +45,6 @@ android {
 dependencies {
 	implementation(project(Module.styles))
 	implementation(project(Module.core))
-
-	implementation(project(Module.searchMovies))
-	implementation(project(Module.setting))
 
 	implementation(AndroidXSupportDependencies.pagingRuntime)
 	CommonDependency()

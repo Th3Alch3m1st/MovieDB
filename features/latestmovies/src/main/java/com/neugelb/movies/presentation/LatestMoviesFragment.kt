@@ -2,7 +2,6 @@ package com.neugelb.movies.presentation
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -13,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.neugelb.core.fragment.BaseFragment
@@ -107,10 +107,10 @@ class LatestMoviesFragment : BaseFragment<FragmentLatestMoviesBinding>() {
 			override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
 				when (menuItem.itemId) {
 					R.id.action_search -> {
-						//navigateToCitySearchFragment()
+						findNavController().navigate(R.id.action_fragment_latest_movies_to_search_movies)
 					}
 					R.id.action_setting -> {
-						//findNavController().navigate(R.id.action_fragment_weatherinfo_to_setting)
+						findNavController().navigate(R.id.action_fragment_latest_movies_to_settings)
 					}
 					else -> {
 

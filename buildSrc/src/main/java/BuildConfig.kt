@@ -10,6 +10,7 @@ object BuildConfig {
 
 	const val setting = "com.neugelb.feature.setting"
 	const val latestMovies = "com.neugelb.feature.latestmovies"
+	const val searchMovies = "com.neugelb.feature.searchmovies"
 	const val compileSdkVersion = 33
 	const val minSdkVersion = 24
 	const val targetSdkVersion = 33

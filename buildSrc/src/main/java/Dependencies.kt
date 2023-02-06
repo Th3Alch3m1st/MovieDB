@@ -12,6 +12,7 @@ object Module{
     val preference = ":appcore:preference"
 
     val latestMovies = ":features:latestmovies"
+    val searchMovies = ":features:searchmovies"
     val setting = ":features:settings"
 }
 /**

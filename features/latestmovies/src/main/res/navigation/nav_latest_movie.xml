@@ -5,10 +5,29 @@
     android:id="@+id/nav_latest_movie"
     app:startDestination="@id/fragment_latest_movies">
 
+    <include app:graph="@navigation/nav_search" />
+    <include app:graph="@navigation/nav_setting" />
+
     <fragment
         android:id="@+id/fragment_latest_movies"
         android:name="com.neugelb.movies.presentation.LatestMoviesFragment"
         android:label="LatestMovies"
-        tools:layout="@layout/fragment_latest_movies"/>
+        tools:layout="@layout/fragment_latest_movies">
+        <action
+            android:id="@+id/action_fragment_latest_movies_to_search_movies"
+            app:destination="@id/nav_search"
+            app:enterAnim="@anim/right_slide_in"
+            app:exitAnim="@anim/left_slide_out"
+            app:popEnterAnim="@anim/left_slide_in"
+            app:popExitAnim="@anim/right_slide_out" />
+
+        <action
+            android:id="@+id/action_fragment_latest_movies_to_settings"
+            app:destination="@id/nav_setting"
+            app:enterAnim="@anim/right_slide_in"
+            app:exitAnim="@anim/left_slide_out"
+            app:popEnterAnim="@anim/left_slide_in"
+            app:popExitAnim="@anim/right_slide_out" />
+    </fragment>
 
 </navigation>
