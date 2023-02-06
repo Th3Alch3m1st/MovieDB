@@ -2,23 +2,29 @@ package com.neugelb.movies.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.neugelb.core.model.MovieUIModel
 import com.neugelb.movies.dto.usecase.LatestMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 /**
  * Created by Rafiqul Hasan
  */
+@OptIn(ExperimentalCoroutinesApi::class)
 @HiltViewModel
 class LatestMoviesViewModel @Inject constructor(private val useCase: LatestMoviesUseCase) :
 	ViewModel() {
 
+	//To avoid duplication call during orientation change
+	private val latestMovieState = MutableSharedFlow<Boolean>()
+	private val actionLatestMovie = latestMovieState
+		.distinctUntilChanged()
+		.onStart { emit(true) }
 
-	fun getLatestMovies(): Flow<PagingData<MovieUIModel>> {
-		return useCase.getLatestMovies().cachedIn(viewModelScope)
-	}
+	val latestMovies = actionLatestMovie.flatMapLatest {
+		useCase.getLatestMovies()
+	}.cachedIn(viewModelScope)
+
 }

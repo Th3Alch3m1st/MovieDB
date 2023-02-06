@@ -11,8 +11,7 @@
             layout="@layout/layout_toolbar"
             app:toolbarTitle="@{@string/title_latest_movies}" />
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipe_refresh"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
@@ -21,6 +20,12 @@
                 android:id="@+id/rv_latest_movies"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <include
+                android:id="@+id/view_empty"
+                layout="@layout/layout_error"
+                android:visibility="gone"
+                app:dummy="@{true}" />
+        </RelativeLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

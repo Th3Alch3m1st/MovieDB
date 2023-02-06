@@ -26,12 +26,12 @@ android {
 		getByName("debug"){
 			buildConfigField("String", "AUTH_TOKEN", "\"ddf19a1b3587568c5c436f7f53196f0a\"")
 			buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-			buildConfigField("String", "IMAGE_URL", "\"https://image.tmdb.org/t/p/\"")
+			buildConfigField("String", "IMAGE_URL", "\"https://image.tmdb.org/t/p\"")
 		}
 		getByName("release") {
 			buildConfigField("String", "AUTH_TOKEN", "\"ddf19a1b3587568c5c436f7f53196f0a\"")
 			buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-			buildConfigField("String", "IMAGE_URL", "\"https://image.tmdb.org/t/p/\"")
+			buildConfigField("String", "IMAGE_URL", "\"https://image.tmdb.org/t/p\"")
 			isMinifyEnabled = false
 			proguardFiles(
 				getDefaultProguardFile("proguard-android-optimize.txt"),

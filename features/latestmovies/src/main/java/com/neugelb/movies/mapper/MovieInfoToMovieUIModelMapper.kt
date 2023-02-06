@@ -8,7 +8,7 @@ import com.neugelb.core.BuildConfig
 /**
  * Created by Rafiqul Hasan
  */
-class MovieInfoToMovieUIModelMapper() :Mapper<MovieInfo,MovieUIModel>{
+class MovieInfoToMovieUIModelMapper() : Mapper<MovieInfo, MovieUIModel> {
 	override fun map(input: MovieInfo): MovieUIModel {
 		return MovieUIModel(
 			id = input.id ?: 0,
@@ -16,7 +16,7 @@ class MovieInfoToMovieUIModelMapper() :Mapper<MovieInfo,MovieUIModel>{
 			releaseDate = input.releaseDate ?: "",
 			overView = input.overview ?: "",
 			backDropImage = "${BuildConfig.IMAGE_URL}/original/${input.backdropPath ?: ""}",
-			thumbnailBackDropImage = "${BuildConfig.IMAGE_URL}/w500/${input.backdropPath ?: ""}",
+			thumbnailBackDropImage = "${BuildConfig.IMAGE_URL}/w500/${input.backdropPath ?: if (!input.posterPath.isNullOrEmpty()) input.posterPath else ""}",
 			posterImage = "${BuildConfig.IMAGE_URL}/original/${input.posterPath ?: ""}",
 			genreIds = input.genreIds ?: listOf(),
 			vote = input.voteAverage ?: 0.0f
