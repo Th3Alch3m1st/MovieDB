@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.neugelb.core.fragment.BaseFragment
@@ -17,6 +18,7 @@ import com.neugelb.core.util.gone
 import com.neugelb.core.util.show
 import com.neugelb.feature.searchmovies.R
 import com.neugelb.feature.searchmovies.databinding.FragmentSearchMoviesBinding
+import com.neugelb.moviedetails.MovieDetailsFragment
 import com.neugelb.searchmovies.presentation.adapter.SearchMoviesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -41,7 +43,13 @@ class FragmentSearchMovies : BaseFragment<FragmentSearchMoviesBinding>() {
 
 		//init recyclerview adapter
 		moviesAdapter = SearchMoviesAdapter { movieInfo ->
-
+			val bundle = Bundle().apply {
+				putParcelable(MovieDetailsFragment.ARG_MOVIE, movieInfo)
+			}
+			findNavController().navigate(
+				R.id.action_fragment_search_movies_to_movie_details,
+				bundle
+			)
 		}
 
 		spanCount =

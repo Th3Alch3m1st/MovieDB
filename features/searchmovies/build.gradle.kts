@@ -45,6 +45,8 @@ android {
 dependencies {
 	implementation(project(Module.styles))
 	implementation(project(Module.core))
+	implementation(project(Module.movieDetails))
+
 
 	implementation(AndroidXSupportDependencies.pagingRuntime)
 	CommonDependency()

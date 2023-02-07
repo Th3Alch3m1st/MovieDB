@@ -5,9 +5,19 @@
     android:id="@+id/nav_search"
     app:startDestination="@id/fragment_movie_search">
 
+    <include app:graph="@navigation/nav_movie_details" />
+
     <fragment
         android:id="@+id/fragment_movie_search"
         android:name="com.neugelb.searchmovies.presentation.FragmentSearchMovies"
         android:label="ImageSearch"
-        tools:layout="@layout/fragment_search_movies" />
+        tools:layout="@layout/fragment_search_movies" >
+        <action
+            android:id="@+id/action_fragment_search_movies_to_movie_details"
+            app:destination="@id/nav_movie_details"
+            app:enterAnim="@anim/right_slide_in"
+            app:exitAnim="@anim/left_slide_out"
+            app:popEnterAnim="@anim/left_slide_in"
+            app:popExitAnim="@anim/right_slide_out" />
+    </fragment>
 </navigation>
