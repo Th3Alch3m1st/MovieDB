@@ -10,13 +10,13 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.neugelb.core.fragment.BaseFragment
+import com.neugelb.core.loadstateadapter.PagingLoadStateAdapter
 import com.neugelb.core.util.DebouncingQueryTextListener
 import com.neugelb.core.util.GridItemDecoration
 import com.neugelb.core.util.gone
 import com.neugelb.core.util.show
 import com.neugelb.feature.searchmovies.R
 import com.neugelb.feature.searchmovies.databinding.FragmentSearchMoviesBinding
-import com.neugelb.searchmovies.presentation.adapter.SearchLoadStateAdapter
 import com.neugelb.searchmovies.presentation.adapter.SearchMoviesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -96,7 +96,7 @@ class FragmentSearchMovies : BaseFragment<FragmentSearchMoviesBinding>() {
 
 			with(moviesAdapter) {
 				rvSearchResult.adapter = withLoadStateFooter(
-					footer = SearchLoadStateAdapter(moviesAdapter)
+					footer = PagingLoadStateAdapter(moviesAdapter)
 				)
 				if (itemCount > 0) {
 					viewEmpty.root.gone()

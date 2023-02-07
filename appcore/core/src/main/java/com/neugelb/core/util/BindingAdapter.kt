@@ -18,8 +18,8 @@ import com.neugelb.core.glide.GlideApp
 fun ImageView.loadImage(url: String?) {
 	GlideApp.with(this)
 		.load(url)
-		.placeholder(R.drawable.placeholder)
-		.error(R.drawable.placeholder)
+		.placeholder(R.drawable.ic_movie_placeholder)
+		.error(R.drawable.ic_movie_placeholder)
 		.into(this)
 }
 

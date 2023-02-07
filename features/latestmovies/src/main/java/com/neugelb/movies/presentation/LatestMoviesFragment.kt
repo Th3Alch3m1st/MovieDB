@@ -16,13 +16,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.neugelb.core.fragment.BaseFragment
+import com.neugelb.core.loadstateadapter.PagingLoadStateAdapter
 import com.neugelb.core.util.GridItemDecoration
 import com.neugelb.core.util.gone
 import com.neugelb.core.util.show
 import com.neugelb.feature.latestmovies.R
 import com.neugelb.feature.latestmovies.databinding.FragmentLatestMoviesBinding
 import com.neugelb.movies.presentation.adapter.LatestMoviesAdapter
-import com.neugelb.searchmovies.presentation.adapter.SearchLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -80,7 +80,7 @@ class LatestMoviesFragment : BaseFragment<FragmentLatestMoviesBinding>() {
 
 			with(latestMoviesAdapter) {
 				rvLatestMovies.adapter = withLoadStateFooter(
-					footer = SearchLoadStateAdapter(latestMoviesAdapter)
+					footer = PagingLoadStateAdapter(latestMoviesAdapter)
 				)
 				if (itemCount > 0) {
 					viewEmpty.root.gone()

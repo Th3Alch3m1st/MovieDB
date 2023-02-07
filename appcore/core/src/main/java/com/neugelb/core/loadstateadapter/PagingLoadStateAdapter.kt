@@ -1,4 +1,4 @@
-package com.neugelb.searchmovies.presentation.adapter
+package com.neugelb.core.loadstateadapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,21 +7,21 @@ import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.neugelb.feature.searchmovies.R
-import com.neugelb.feature.searchmovies.databinding.ItemNetworkStateBinding
+import com.neugelb.core.R
+import com.neugelb.core.databinding.SingleItemNetworkStateBinding
 
 /**
  * Created By Rafiqul Hasan
  */
-class SearchLoadStateAdapter<T : Any, VH : RecyclerView.ViewHolder>(
+class PagingLoadStateAdapter<T : Any, VH : RecyclerView.ViewHolder>(
 	private val adapter: PagingDataAdapter<T, VH>
-) : LoadStateAdapter<SearchLoadStateAdapter.NetworkStateItemViewHolder>() {
+) : LoadStateAdapter<PagingLoadStateAdapter.NetworkStateItemViewHolder>() {
 
 	override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState) =
 		NetworkStateItemViewHolder(
-			ItemNetworkStateBinding.bind(
+			SingleItemNetworkStateBinding.bind(
 				LayoutInflater.from(parent.context)
-					.inflate(R.layout.item_network_state, parent, false)
+					.inflate(R.layout.single_item_network_state, parent, false)
 			)
 		) { adapter.retry() }
 
@@ -29,7 +29,7 @@ class SearchLoadStateAdapter<T : Any, VH : RecyclerView.ViewHolder>(
 		holder.bind(loadState)
 
 	class NetworkStateItemViewHolder(
-		private val binding: ItemNetworkStateBinding,
+		private val binding: SingleItemNetworkStateBinding,
 		private val retryCallback: () -> Unit
 	) : RecyclerView.ViewHolder(binding.root) {
 

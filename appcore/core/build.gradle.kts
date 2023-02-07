@@ -55,6 +55,8 @@ dependencies {
 	implementation(AndroidXSupportDependencies.appCompat)
 	implementation(MaterialDesignDependencies.materialDesign)
 
+	implementation(AndroidXSupportDependencies.pagingRuntime)
+
 	HiltDependency()
 	NetworkDependency()
 
