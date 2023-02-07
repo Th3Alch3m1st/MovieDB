@@ -15,4 +15,6 @@ include(":appcore:testutils")
 
 include(":features:latestmovies")
 include(":features:searchmovies")
+include(":features:moviedetails")
+
 include(":features:settings")

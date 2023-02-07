@@ -51,11 +51,23 @@
         <item name="android:textColorHint">@color/gray</item>
     </style>
 
+    <style name="CollapsibleToolbarTheme" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="collapsedTitleTextColor">@color/white</item>
+        <item name="expandedTitleTextColor">@color/white</item>
+        <item name="contentScrim">@color/purple_700</item>
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowDx">12</item>
+        <item name="android:shadowDy">12</item>
+        <item name="android:shadowRadius">8</item>
+    </style>
+
     <style name="TextStyleBold">
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
         <item name="drawableTint">@color/black</item>
     </style>
+
     <style name="TextStyleNormal">
         <item name="android:textColor">@color/black_70</item>
         <item name="drawableTint">@color/black_70</item>

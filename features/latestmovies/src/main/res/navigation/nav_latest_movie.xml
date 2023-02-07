@@ -22,6 +22,14 @@
             app:popExitAnim="@anim/right_slide_out" />
 
         <action
+            android:id="@+id/action_fragment_latest_movies_to_movie_details"
+            app:destination="@id/fragment_movie_details"
+            app:enterAnim="@anim/right_slide_in"
+            app:exitAnim="@anim/left_slide_out"
+            app:popEnterAnim="@anim/left_slide_in"
+            app:popExitAnim="@anim/right_slide_out" />
+
+        <action
             android:id="@+id/action_fragment_latest_movies_to_settings"
             app:destination="@id/nav_setting"
             app:enterAnim="@anim/right_slide_in"
@@ -29,5 +37,12 @@
             app:popEnterAnim="@anim/left_slide_in"
             app:popExitAnim="@anim/right_slide_out" />
     </fragment>
+
+    <fragment
+        android:id="@+id/fragment_movie_details"
+        android:name="com.neugelb.moviedetails.MovieDetailsFragment"
+        android:label="LatestMovies"
+        tools:layout="@layout/fragment_movie_details" />
+
 
 </navigation>

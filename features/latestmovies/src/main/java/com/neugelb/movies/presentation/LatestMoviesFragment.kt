@@ -43,7 +43,7 @@ class LatestMoviesFragment : BaseFragment<FragmentLatestMoviesBinding>() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		latestMoviesAdapter = LatestMoviesAdapter {
-
+			findNavController().navigate(R.id.action_fragment_latest_movies_to_movie_details)
 		}
 
 		spanCount =

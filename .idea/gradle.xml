@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/latestmovies" />
+            <option value="$PROJECT_DIR$/features/moviedetails" />
             <option value="$PROJECT_DIR$/features/searchmovies" />
             <option value="$PROJECT_DIR$/features/settings" />
           </set>

@@ -9,14 +9,14 @@ plugins {
 }
 
 android {
-	namespace =  BuildConfig.latestMovies
+	namespace = BuildConfig.movieDetails
 	compileSdk = BuildConfig.compileSdkVersion
 
 	defaultConfig {
 		minSdk = BuildConfig.minSdkVersion
 		targetSdk = BuildConfig.targetSdkVersion
 
-		testInstrumentationRunner = BuildConfig.testRunnerPackage
+		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		consumerProguardFiles("consumer-rules.pro")
 	}
 
@@ -46,13 +46,7 @@ dependencies {
 	implementation(project(Module.styles))
 	implementation(project(Module.core))
 
-	implementation(project(Module.searchMovies))
-	implementation(project(Module.movieDetails))
-	implementation(project(Module.setting))
-
-	implementation(AndroidXSupportDependencies.pagingRuntime)
 	CommonDependency()
-	NetworkDependency()
 
 	testImplementation(project(Module.testUtils))
 	androidTestImplementation(project(Module.testUtils))
