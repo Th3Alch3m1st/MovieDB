@@ -22,6 +22,7 @@ import com.neugelb.core.util.gone
 import com.neugelb.core.util.show
 import com.neugelb.feature.latestmovies.R
 import com.neugelb.feature.latestmovies.databinding.FragmentLatestMoviesBinding
+import com.neugelb.moviedetails.MovieDetailsFragment
 import com.neugelb.movies.presentation.adapter.LatestMoviesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -42,8 +43,14 @@ class LatestMoviesFragment : BaseFragment<FragmentLatestMoviesBinding>() {
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		latestMoviesAdapter = LatestMoviesAdapter {
-			findNavController().navigate(R.id.action_fragment_latest_movies_to_movie_details)
+		latestMoviesAdapter = LatestMoviesAdapter { movieInfo ->
+			val bundle = Bundle().apply {
+				putParcelable(MovieDetailsFragment.ARG_MOVIE, movieInfo)
+			}
+			findNavController().navigate(
+				R.id.action_fragment_latest_movies_to_movie_details,
+				bundle
+			)
 		}
 
 		spanCount =

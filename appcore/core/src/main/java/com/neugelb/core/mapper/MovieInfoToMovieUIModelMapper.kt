@@ -18,7 +18,8 @@ class MovieInfoToMovieUIModelMapper() : Mapper<MovieInfo, MovieUIModel> {
 			thumbnailBackDropImage = "${BuildConfig.IMAGE_URL}/w500/${input.backdropPath ?: if (!input.posterPath.isNullOrEmpty()) input.posterPath else ""}",
 			posterImage = "${BuildConfig.IMAGE_URL}/original/${input.posterPath ?: ""}",
 			genreIds = input.genreIds ?: listOf(),
-			vote = input.voteAverage ?: 0.0f
+			rating = input.voteAverage ?: 0.0f,
+			voteCount = input.voteCount ?: 0
 		)
 	}
 }

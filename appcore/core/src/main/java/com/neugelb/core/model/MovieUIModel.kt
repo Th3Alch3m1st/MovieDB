@@ -16,5 +16,6 @@ data class MovieUIModel(
 	val thumbnailBackDropImage:String,
 	val posterImage:String,
 	val genreIds:List<Int>,
-	val vote:Float
+	val rating:Float,
+	val voteCount:Int
 ): Parcelable
