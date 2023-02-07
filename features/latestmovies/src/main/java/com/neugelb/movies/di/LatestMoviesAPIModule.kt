@@ -4,8 +4,8 @@ package com.neugelb.movies.di
 import com.neugelb.core.mapper.Mapper
 import com.neugelb.core.model.MovieUIModel
 import com.neugelb.movies.data.api.LatestMoviesApi
-import com.neugelb.movies.data.dto.MovieInfo
-import com.neugelb.movies.mapper.MovieInfoToMovieUIModelMapper
+import com.neugelb.core.model.MovieInfo
+import com.neugelb.core.mapper.MovieInfoToMovieUIModelMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,12 +21,7 @@ import javax.inject.Singleton
 object  LatestMoviesAPIModule {
 	@Provides
 	@Singleton
-	fun provideImageSearchApi(retrofit: Retrofit): LatestMoviesApi {
+	fun provideLatestMoviesApi(retrofit: Retrofit): LatestMoviesApi {
 		return retrofit.create(LatestMoviesApi::class.java)
-	}
-	@Provides
-	@Singleton
-	fun provideMapper(): Mapper<MovieInfo, MovieUIModel> {
-		return MovieInfoToMovieUIModelMapper()
 	}
 }

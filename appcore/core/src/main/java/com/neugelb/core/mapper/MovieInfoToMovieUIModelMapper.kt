@@ -1,8 +1,7 @@
-package com.neugelb.movies.mapper
+package com.neugelb.core.mapper
 
-import com.neugelb.core.mapper.Mapper
 import com.neugelb.core.model.MovieUIModel
-import com.neugelb.movies.data.dto.MovieInfo
+import com.neugelb.core.model.MovieInfo
 import com.neugelb.core.BuildConfig
 
 /**

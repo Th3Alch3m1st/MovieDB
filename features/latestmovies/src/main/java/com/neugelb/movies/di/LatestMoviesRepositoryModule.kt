@@ -17,5 +17,5 @@ abstract class LatestMoviesRepositoryModule {
 
 	@Binds
 	@Singleton
-	abstract fun provideSearchImagePagingRepositoryImpl(useCaseImpl: LatestMoviesPagingRepositoryImpl): LatestMoviesRepository
+	abstract fun provideLatestMoviesRepository(useCaseImpl: LatestMoviesPagingRepositoryImpl): LatestMoviesRepository
 }

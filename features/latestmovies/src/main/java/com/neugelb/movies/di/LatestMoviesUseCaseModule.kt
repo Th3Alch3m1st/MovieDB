@@ -17,5 +17,5 @@ abstract class LatestMoviesUseCaseModule {
 
 	@Binds
 	@Singleton
-	abstract fun provideSearchImageUseCaseImpl(useCaseImpl: LatestMoviesUseCaseImpl): LatestMoviesUseCase
+	abstract fun provideLatestMoviesUseCase(useCaseImpl: LatestMoviesUseCaseImpl): LatestMoviesUseCase
 }

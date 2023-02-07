@@ -1,4 +1,4 @@
-package com.neugelb.movies.data.paging
+package com.neugelb.searchmovies.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
@@ -6,25 +6,26 @@ import com.neugelb.core.mapper.Mapper
 import com.neugelb.core.model.MovieUIModel
 import com.neugelb.core.network.Resource
 import com.neugelb.core.model.MovieInfo
-import com.neugelb.movies.data.remote.LatestMoviesRemoteSource
+import com.neugelb.searchmovies.data.remote.SearchMoviesRemoteSource
 import java.lang.Exception
 
 /**
  * Created by Rafiqul Hasan
  */
-class LatestMoviesPagingSource(
-	private val remoteSource: LatestMoviesRemoteSource,
+class SearchMoviesPagingSource(
+	private val query: String,
+	private val remoteSource: SearchMoviesRemoteSource,
 	private val mapper: Mapper<MovieInfo, MovieUIModel>
 ) : PagingSource<Int, MovieUIModel>() {
 
 	override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieUIModel> {
 		return try {
 			val pageNumber = params.key ?: 1
-			val response = remoteSource.getLatestMovies(pageNumber = pageNumber)
+			val response = remoteSource.searchMovies(query = query, pageNumber = pageNumber)
 			if (response is Resource.Success) {
 				LoadResult.Page(
 					data = response.data.results?.map(mapper::map).orEmpty(),
-					prevKey = if(pageNumber == 1) null else pageNumber-1,
+					prevKey = if (pageNumber == 1) null else pageNumber - 1,
 					nextKey = calculateNextSearchParameter(
 						pageNumber = pageNumber,
 						totalPage = response.data.totalPages ?: 0

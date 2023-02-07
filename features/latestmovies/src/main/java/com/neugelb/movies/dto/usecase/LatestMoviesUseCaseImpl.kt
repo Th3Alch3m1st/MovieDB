@@ -1,6 +1,5 @@
 package com.neugelb.movies.dto.usecase
 
-import android.util.Log
 import androidx.paging.PagingData
 import com.neugelb.core.model.MovieUIModel
 import com.neugelb.movies.dto.repository.LatestMoviesRepository
@@ -15,7 +14,6 @@ class LatestMoviesUseCaseImpl @Inject constructor(
 ) : LatestMoviesUseCase {
 
 	override fun getLatestMovies(): Flow<PagingData<MovieUIModel>> {
-		Log.e("error","LatestMoviesUseCaseImpl")
 		return repository.getLatestMovies()
 	}
 }

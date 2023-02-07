@@ -1,10 +1,10 @@
-package com.neugelb.movies.data.dto
+package com.neugelb.core.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class LatestMoviesResponse(
+data class MoviesResponse(
 
 	@Json(name = "dates")
 	val dates: Dates? = null,

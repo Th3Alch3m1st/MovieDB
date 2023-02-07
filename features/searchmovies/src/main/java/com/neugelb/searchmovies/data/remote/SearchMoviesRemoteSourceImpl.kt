@@ -1,28 +1,31 @@
-package com.neugelb.movies.data.remote
+package com.neugelb.searchmovies.data.remote
 
 import com.neugelb.core.di.qualifiers.IoDispatcher
 import com.neugelb.core.network.BaseSource
 import com.neugelb.core.network.Resource
-import com.neugelb.movies.data.api.LatestMoviesApi
 import com.neugelb.core.model.MoviesResponse
 import com.neugelb.core.BuildConfig
+import com.neugelb.searchmovies.data.api.SearchMovieApi
 import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 
 /**
  * Created by Rafiqul Hasan
  */
-class LatestMoviesRemoteSourceImpl @Inject constructor(
-	private val api: LatestMoviesApi,
+class SearchMoviesRemoteSourceImpl @Inject constructor(
+	private val api: SearchMovieApi,
 	@IoDispatcher private val ioDispatcher: CoroutineDispatcher
-) : LatestMoviesRemoteSource, BaseSource() {
-	override suspend fun getLatestMovies(pageNumber: Int): Resource<MoviesResponse> {
+) : SearchMoviesRemoteSource, BaseSource() {
+
+	override suspend fun searchMovies(query: String, pageNumber: Int): Resource<MoviesResponse> {
 		val queryMap = mapOf(
 			"api_key" to BuildConfig.AUTH_TOKEN,
+			"query" to query,
 			"page" to pageNumber.toString()
 		)
+
 		return safeApiCall(ioDispatcher) {
-			api.getLatestMovies(queryMap)
+			api.searchMovies(queryMap)
 		}
 	}
 }

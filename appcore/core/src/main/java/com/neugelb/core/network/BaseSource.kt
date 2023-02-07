@@ -39,10 +39,7 @@ abstract class BaseSource {
 		return withContext(dispatcher) {
 			try {
 				response = call()
-			}catch (ex:Exception){
-				Log.e("error","${ex.message}")
-			}
-			catch (connectException: Exception) {
+			} catch (connectException: Exception) {
 				return@withContext Resource.Error(
 					RequestException(CONNECT_EXCEPTION),
 					response?.code() ?: -1
