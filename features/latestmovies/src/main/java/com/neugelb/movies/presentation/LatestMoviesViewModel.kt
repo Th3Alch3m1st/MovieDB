@@ -1,5 +1,6 @@
 package com.neugelb.movies.presentation
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
@@ -26,5 +27,10 @@ class LatestMoviesViewModel @Inject constructor(private val useCase: LatestMovie
 	val latestMovies = actionLatestMovie.flatMapLatest {
 		useCase.getLatestMovies()
 	}.cachedIn(viewModelScope)
+
+	@VisibleForTesting
+	val latestMoviesTest = actionLatestMovie.flatMapLatest {
+		useCase.getLatestMovies()
+	}
 
 }

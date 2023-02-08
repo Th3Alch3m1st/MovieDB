@@ -1,4 +1,4 @@
-package com.neugelb.movies.data
+package com.neugelb.movies
 
 import com.neugelb.core.model.MoviesResponse
 import com.neugelb.core.network.Resource
