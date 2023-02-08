@@ -1,8 +1,8 @@
 package com.neugelb.movies.data.remote
 
 import com.neugelb.core.network.Resource
-import com.neugelb.movies.TestUtils
-import com.neugelb.movies.TestUtils.getOkHttpClient
+import com.neugelb.movies.utils.TestUtils
+import com.neugelb.movies.utils.TestUtils.getOkHttpClient
 import com.neugelb.movies.data.api.LatestMoviesApi
 import com.neugelb.movies.data.api.LatestMoviesApiTest
 import com.neugelb.testutil.shouldEqual

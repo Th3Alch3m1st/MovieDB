@@ -1,8 +1,8 @@
 package com.neugelb.movies.data.api
 
-import com.neugelb.movies.TestUtils
-import com.neugelb.movies.TestUtils.getOkHttpClient
-import com.neugelb.movies.TestUtils.getQueryMap
+import com.neugelb.movies.utils.TestUtils
+import com.neugelb.movies.utils.TestUtils.getOkHttpClient
+import com.neugelb.movies.utils.TestUtils.getQueryMap
 import com.neugelb.testutil.shouldEqual
 import com.squareup.moshi.Moshi
 import kotlinx.coroutines.runBlocking

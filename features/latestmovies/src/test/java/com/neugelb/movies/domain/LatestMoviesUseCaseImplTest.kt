@@ -6,7 +6,7 @@ import com.neugelb.core.mapper.MovieInfoToMovieUIModelMapper
 import com.neugelb.core.model.MovieInfo
 import com.neugelb.core.model.MovieUIModel
 import com.neugelb.core.network.Resource
-import com.neugelb.movies.TestUtils
+import com.neugelb.movies.utils.TestUtils
 import com.neugelb.movies.data.api.LatestMoviesApiTest
 import com.neugelb.movies.dto.repository.LatestMoviesRepository
 import com.neugelb.movies.dto.usecase.LatestMoviesUseCaseImpl

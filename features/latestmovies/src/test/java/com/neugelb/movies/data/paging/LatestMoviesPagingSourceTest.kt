@@ -8,7 +8,7 @@ import com.neugelb.core.model.MovieUIModel
 import com.neugelb.core.model.MoviesResponse
 import com.neugelb.core.network.RequestException
 import com.neugelb.core.network.Resource
-import com.neugelb.movies.TestUtils.getLatestMoviesRemoteData
+import com.neugelb.movies.utils.TestUtils.getLatestMoviesRemoteData
 import com.neugelb.movies.data.api.LatestMoviesApiTest
 import com.neugelb.movies.data.remote.LatestMoviesRemoteSource
 import com.neugelb.testutil.returns
