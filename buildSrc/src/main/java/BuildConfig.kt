@@ -19,7 +19,7 @@ object BuildConfig {
 	const val versionName = "1.0"
 	const val buildToolsVersion = "30.0.3"
 
-	const val testRunnerPackage = "com.payback.testutil.uitest.HiltAppTestRunner"
+	const val testRunnerPackage = "com.neugelb.testutil.uitest.HiltAppTestRunner"
 
 	//val androidBuildTools by lazy { "com.android.tools.build:gradle:${Versions.gradlePlugin}" }
 }
