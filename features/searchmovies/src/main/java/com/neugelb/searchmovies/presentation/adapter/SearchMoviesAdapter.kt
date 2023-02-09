@@ -13,10 +13,10 @@ import com.neugelb.feature.searchmovies.databinding.SingleItemMovieSearchBinding
  * Created By Rafiqul Hasan
  */
 class SearchMoviesAdapter(val onItemClicked: (MovieUIModel) -> Unit?) :
-	PagingDataAdapter<MovieUIModel, SearchMoviesAdapter.ImageViewHolder>(ImageComparator) {
+	PagingDataAdapter<MovieUIModel, SearchMoviesAdapter.MovieViewHolder>(ImageComparator) {
 
-	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
-		return ImageViewHolder(
+	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+		return MovieViewHolder(
 			SingleItemMovieSearchBinding.inflate(
 				LayoutInflater.from(parent.context),
 				parent,
@@ -25,7 +25,7 @@ class SearchMoviesAdapter(val onItemClicked: (MovieUIModel) -> Unit?) :
 		)
 	}
 
-	override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
+	override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
 		val imageItem = getItem(position)
 		imageItem?.let { item ->
 			holder.bind(item)
@@ -38,7 +38,7 @@ class SearchMoviesAdapter(val onItemClicked: (MovieUIModel) -> Unit?) :
 		}
 	}
 
-	inner class ImageViewHolder(val binding: SingleItemMovieSearchBinding) :
+	inner class MovieViewHolder(val binding: SingleItemMovieSearchBinding) :
 		RecyclerView.ViewHolder(binding.root) {
 		fun bind(imageUIModel: MovieUIModel) = with(binding) {
 			movieInfo = imageUIModel

@@ -25,7 +25,7 @@ class LatestMoviesPagingSource(
 				LoadResult.Page(
 					data = response.data.results?.map(mapper::map).orEmpty(),
 					prevKey = if(pageNumber == 1) null else pageNumber-1,
-					nextKey = calculateNextSearchParameter(
+					nextKey = calculateNextPageNumberParameter(
 						pageNumber = pageNumber,
 						totalPage = response.data.totalPages ?: 0
 					)
@@ -52,7 +52,7 @@ class LatestMoviesPagingSource(
 		}
 	}
 
-	private fun calculateNextSearchParameter(pageNumber: Int, totalPage: Int): Int? {
+	private fun calculateNextPageNumberParameter(pageNumber: Int, totalPage: Int): Int? {
 		return if (pageNumber < totalPage) {
 			pageNumber + 1
 		} else {

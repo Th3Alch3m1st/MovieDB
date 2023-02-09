@@ -65,7 +65,7 @@ class LatestMoviesApiTest {
 	}
 
 	@Test
-	fun `searchMovies for first call should return first paging Data`() {
+	fun `getLatestMovies for first call should return first paging Data`() {
 		runBlocking {
 			//Arrange
 			mockWebServer.enqueue(TestUtils.mockResponse(PAGE_1_DATA))
@@ -81,7 +81,7 @@ class LatestMoviesApiTest {
 	}
 
 	@Test
-	fun `searchMovies for second call should return second paging Data`() {
+	fun `getLatestMovies for second call should return second paging Data`() {
 		runBlocking {
 			//Arrange
 			mockWebServer.enqueue(TestUtils.mockResponse(PAGE_2_DATA))
@@ -97,7 +97,7 @@ class LatestMoviesApiTest {
 	}
 
 	@Test
-	fun `searchMovies for end call should return end paging Data`() {
+	fun `getLatestMovies for end call should return end paging Data`() {
 		runBlocking {
 			//Arrange
 			mockWebServer.enqueue(TestUtils.mockResponse(PAGE_END_DATA))

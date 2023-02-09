@@ -69,33 +69,6 @@ class LatestMoviesFragment : BaseFragment<FragmentLatestMoviesBinding>() {
 		initObserver()
 	}
 
-	private fun initAdapterAndRecyclerView() {
-		with(dataBinding) {
-			rvLatestMovies.apply {
-				layoutManager = GridLayoutManager(context, spanCount)
-				itemDecoration?.let {
-					removeItemDecoration(it)
-				}
-				itemDecoration = GridItemDecoration(
-					requireContext().resources.getDimension(
-						com.intuit.sdp.R.dimen._4sdp
-					).toInt(),
-					spanCount
-				)
-				addItemDecoration(itemDecoration!!)
-			}
-
-			with(latestMoviesAdapter) {
-				rvLatestMovies.adapter = withLoadStateFooter(
-					footer = PagingLoadStateAdapter(latestMoviesAdapter)
-				)
-				if (itemCount > 0) {
-					viewEmpty.root.gone()
-				}
-			}
-		}
-	}
-
 	private fun initToolbar() {
 		dataBinding.layoutToolbar.toolbar.title = getString(R.string.title_latest_movies)
 		fragmentCommunicator?.setActionBar(dataBinding.layoutToolbar.toolbar, false)
@@ -126,6 +99,33 @@ class LatestMoviesFragment : BaseFragment<FragmentLatestMoviesBinding>() {
 				return true
 			}
 		}, viewLifecycleOwner, Lifecycle.State.RESUMED)
+	}
+
+	private fun initAdapterAndRecyclerView() {
+		with(dataBinding) {
+			rvLatestMovies.apply {
+				layoutManager = GridLayoutManager(context, spanCount)
+				itemDecoration?.let {
+					removeItemDecoration(it)
+				}
+				itemDecoration = GridItemDecoration(
+					requireContext().resources.getDimension(
+						com.intuit.sdp.R.dimen._4sdp
+					).toInt(),
+					spanCount
+				)
+				addItemDecoration(itemDecoration!!)
+			}
+
+			with(latestMoviesAdapter) {
+				rvLatestMovies.adapter = withLoadStateFooter(
+					footer = PagingLoadStateAdapter(latestMoviesAdapter)
+				)
+				if (itemCount > 0) {
+					viewEmpty.root.gone()
+				}
+			}
+		}
 	}
 
 	private fun initObserver() {

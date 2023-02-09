@@ -20,6 +20,7 @@ class LatestMoviesViewModel @Inject constructor(private val useCase: LatestMovie
 
 	//To avoid duplication call during orientation change
 	private val latestMovieState = MutableSharedFlow<Boolean>()
+
 	private val actionLatestMovie = latestMovieState
 		.distinctUntilChanged()
 		.onStart { emit(true) }
@@ -28,6 +29,7 @@ class LatestMoviesViewModel @Inject constructor(private val useCase: LatestMovie
 		useCase.getLatestMovies()
 	}.cachedIn(viewModelScope)
 
+	//cachedIn throw exception during unit test; cachedIn only for save paging state to survive orientation
 	@VisibleForTesting
 	val latestMoviesTest = actionLatestMovie.flatMapLatest {
 		useCase.getLatestMovies()
