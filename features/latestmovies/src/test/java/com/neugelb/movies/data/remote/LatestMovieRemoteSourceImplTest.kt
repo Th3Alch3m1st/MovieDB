@@ -30,7 +30,7 @@ class LatestMovieRemoteSourceImplTest {
 	val mockWebServer = MockWebServer()
 
 	private lateinit var api: LatestMoviesApi
-	private lateinit var sutImageSearchRemoteSourceImpl: LatestMoviesRemoteSourceImpl
+	private lateinit var sutLatestMoviesRemoteSourceImpl: LatestMoviesRemoteSourceImpl
 
 	@Before
 	fun setUp() {
@@ -44,7 +44,7 @@ class LatestMovieRemoteSourceImplTest {
 			.build()
 			.create(LatestMoviesApi::class.java)
 
-		sutImageSearchRemoteSourceImpl = LatestMoviesRemoteSourceImpl(api, UnconfinedTestDispatcher())
+		sutLatestMoviesRemoteSourceImpl = LatestMoviesRemoteSourceImpl(api, UnconfinedTestDispatcher())
 	}
 
 	@After
@@ -59,7 +59,7 @@ class LatestMovieRemoteSourceImplTest {
 			mockWebServer.enqueue(TestUtils.mockResponse(LatestMoviesApiTest.PAGE_1_DATA))
 
 			// Act
-			val response = sutImageSearchRemoteSourceImpl.getLatestMovies(LatestMoviesApiTest.PAGE_NO_1)
+			val response = sutLatestMoviesRemoteSourceImpl.getLatestMovies(LatestMoviesApiTest.PAGE_NO_1)
 
 			// Assert
 			(response as Resource.Success).data.totalResults shouldEqual LatestMoviesApiTest.TOTAL_ITEM
@@ -75,7 +75,7 @@ class LatestMovieRemoteSourceImplTest {
 			mockWebServer.enqueue(TestUtils.mockResponse(LatestMoviesApiTest.PAGE_2_DATA))
 
 			// Act
-			val response = sutImageSearchRemoteSourceImpl.getLatestMovies(LatestMoviesApiTest.PAGE_NO_2)
+			val response = sutLatestMoviesRemoteSourceImpl.getLatestMovies(LatestMoviesApiTest.PAGE_NO_2)
 
 			// Assert
 			(response as Resource.Success).data.totalResults shouldEqual LatestMoviesApiTest.TOTAL_ITEM
@@ -91,7 +91,7 @@ class LatestMovieRemoteSourceImplTest {
 			mockWebServer.enqueue(TestUtils.mockResponse(LatestMoviesApiTest.PAGE_END_DATA))
 
 			// Act
-			val response = sutImageSearchRemoteSourceImpl.getLatestMovies(LatestMoviesApiTest.PAGE_END)
+			val response = sutLatestMoviesRemoteSourceImpl.getLatestMovies(LatestMoviesApiTest.PAGE_END)
 
 			// Assert
 			(response as Resource.Success).data.totalResults shouldEqual LatestMoviesApiTest.TOTAL_ITEM

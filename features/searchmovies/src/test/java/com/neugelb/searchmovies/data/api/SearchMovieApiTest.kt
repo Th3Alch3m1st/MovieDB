@@ -1,8 +1,8 @@
-package com.neugelb.movies.data.api
+package com.neugelb.searchmovies.data.api
 
-import com.neugelb.movies.utils.TestUtils
-import com.neugelb.movies.utils.TestUtils.getOkHttpClient
-import com.neugelb.movies.utils.TestUtils.getQueryMap
+import com.neugelb.searchmovies.utils.TestUtils
+import com.neugelb.searchmovies.utils.TestUtils.getOkHttpClient
+import com.neugelb.searchmovies.utils.TestUtils.getQueryMap
 import com.neugelb.testutil.shouldEqual
 import com.squareup.moshi.Moshi
 import kotlinx.coroutines.runBlocking
@@ -20,10 +20,11 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  * Created by Rafiqul Hasan
  */
 @RunWith(JUnit4::class)
-class LatestMoviesApiTest {
+class SearchMovieApiTest {
 	companion object {
 		const val ERROR_RESPONSE = "Invalid Token"
 
+		const val QUERY = "Jack"
 		const val PAGE_1_DATA = "page1.json"
 		const val PAGE_2_DATA = "page2.json"
 		const val PAGE_END_DATA = "pageEnd.json"
@@ -32,19 +33,19 @@ class LatestMoviesApiTest {
 		const val PAGE_NO_2 = 2
 		const val PAGE_END = 3
 
-		const val PAGE_1_0_INDEX_ID = 315162
-		const val PAGE_2_0_INDEX_ID = 866413
-		const val PAGE_END_0_INDEX_ID = 760204
+		const val PAGE_1_0_INDEX_ID = 75780
+		const val PAGE_2_0_INDEX_ID = 36950
+		const val PAGE_END_0_INDEX_ID = 25143
 
 		const val PAGE_LIMIT = 20
-		const val PAGE_END_SIZE = 19
-		const val TOTAL_ITEM = 59
+		const val PAGE_END_SIZE = 18
+		const val TOTAL_ITEM = 58
 	}
 
 	@get:Rule
 	val mockWebServer = MockWebServer()
 
-	private lateinit var sutLatestMoviesApi: LatestMoviesApi
+	private lateinit var sutLatestMoviesApi: SearchMovieApi
 
 	@Before
 	fun setUp() {
@@ -56,7 +57,7 @@ class LatestMoviesApiTest {
 			.addConverterFactory(MoshiConverterFactory.create(moshi))
 			.client(getOkHttpClient())
 			.build()
-			.create(LatestMoviesApi::class.java)
+			.create(SearchMovieApi::class.java)
 	}
 
 	@After
@@ -71,7 +72,7 @@ class LatestMoviesApiTest {
 			mockWebServer.enqueue(TestUtils.mockResponse(PAGE_1_DATA))
 
 			// Act
-			val response = sutLatestMoviesApi.getLatestMovies(getQueryMap(PAGE_NO_1))
+			val response = sutLatestMoviesApi.searchMovies(getQueryMap(QUERY, PAGE_NO_1))
 
 			// Assert
 			response.body()?.totalResults shouldEqual TOTAL_ITEM
@@ -87,7 +88,7 @@ class LatestMoviesApiTest {
 			mockWebServer.enqueue(TestUtils.mockResponse(PAGE_2_DATA))
 
 			// Act
-			val response = sutLatestMoviesApi.getLatestMovies(getQueryMap(PAGE_NO_2))
+			val response = sutLatestMoviesApi.searchMovies(getQueryMap(QUERY, PAGE_NO_2))
 
 			// Assert
 			response.body()?.totalResults shouldEqual TOTAL_ITEM
@@ -103,7 +104,7 @@ class LatestMoviesApiTest {
 			mockWebServer.enqueue(TestUtils.mockResponse(PAGE_END_DATA))
 
 			// Act
-			val response = sutLatestMoviesApi.getLatestMovies(getQueryMap(PAGE_END))
+			val response = sutLatestMoviesApi.searchMovies(getQueryMap(QUERY, PAGE_END))
 
 			// Assert
 			response.body()?.totalResults shouldEqual TOTAL_ITEM
