@@ -1,10 +1,10 @@
-package com.neugelb.movies.fakeremotesource
+package com.neugelb.searchmovies.fakeremotesource
 
 import com.neugelb.core.model.MovieInfo
 import com.neugelb.core.model.MoviesResponse
 import com.neugelb.core.network.RequestException
 import com.neugelb.core.network.Resource
-import com.neugelb.movies.data.remote.LatestMoviesRemoteSource
+import com.neugelb.searchmovies.data.remote.SearchMoviesRemoteSource
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -12,21 +12,24 @@ import javax.inject.Singleton
  * Created by Rafiqul Hasan
  */
 @Singleton
-class FakeLatestMoviesRemoteSourceImpl @Inject constructor() : LatestMoviesRemoteSource {
+class FakeMovieSearchRemoteSourceImpl @Inject constructor() : SearchMoviesRemoteSource {
 	companion object {
-		const val PAGE_SIZE = 20
+		const val TRIGGERED_EMPTY_RESPONSE = "jack asdadasd"
 		const val MSG_ERROR = "Invalid Token"
-		const val MSG_EMPTY = "Nothing Found"
+		const val MSG_EMPTY = "Nothing found, try with a different title"
+		const val PAGE_SIZE = 20
+
 	}
 
-	var isEmptyResponse = false
 	var isTestError = false
 	var isRetryTest = false
 
-	override suspend fun getLatestMovies(pageNumber: Int): Resource<MoviesResponse> {
+
+	override suspend fun searchMovies(query: String, pageNumber: Int): Resource<MoviesResponse> {
+
 		if (isTestError) {
 			return Resource.Error(RequestException(MSG_ERROR), 0)
-		} else if (isEmptyResponse) {
+		} else if (query.equals(TRIGGERED_EMPTY_RESPONSE, true)) {
 			return Resource.Success(MoviesResponse())
 		} else {
 			val response = if (isRetryTest) {
@@ -47,7 +50,7 @@ class FakeLatestMoviesRemoteSourceImpl @Inject constructor() : LatestMoviesRemot
 	}
 
 
-	private fun getMovies(pageLimit: Int = 20): List<MovieInfo> {
+	private fun getMovies(pageLimit: Int = PAGE_SIZE): List<MovieInfo> {
 		val list = mutableListOf<MovieInfo>()
 		for (i in 0 until pageLimit) {
 			val image = if (i % 5 == 0) {

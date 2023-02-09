@@ -10,7 +10,7 @@
     <fragment
         android:id="@+id/fragment_movie_search"
         android:name="com.neugelb.searchmovies.presentation.FragmentSearchMovies"
-        android:label="ImageSearch"
+        android:label="MovieSearch"
         tools:layout="@layout/fragment_search_movies" >
         <action
             android:id="@+id/action_fragment_search_movies_to_movie_details"

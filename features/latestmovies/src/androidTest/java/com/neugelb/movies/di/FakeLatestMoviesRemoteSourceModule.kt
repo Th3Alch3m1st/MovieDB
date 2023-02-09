@@ -20,5 +20,5 @@ import javax.inject.Singleton
 abstract class FakeLatestMoviesRemoteSourceModule {
     @Singleton
     @Binds
-    abstract fun provideFakeImageSearchRemoteSource(impl: FakeLatestMoviesRemoteSourceImpl): LatestMoviesRemoteSource
+    abstract fun provideFakeLatestMoviesRemoteSource(impl: FakeLatestMoviesRemoteSourceImpl): LatestMoviesRemoteSource
 }
