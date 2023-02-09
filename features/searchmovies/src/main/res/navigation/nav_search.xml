@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/fragment_movie_search"
-        android:name="com.neugelb.searchmovies.presentation.FragmentSearchMovies"
+        android:name="com.neugelb.searchmovies.presentation.SearchMoviesFragment"
         android:label="MovieSearch"
         tools:layout="@layout/fragment_search_movies" >
         <action

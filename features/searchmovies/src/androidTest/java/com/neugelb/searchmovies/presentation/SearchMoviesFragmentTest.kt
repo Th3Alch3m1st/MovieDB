@@ -31,7 +31,7 @@ import javax.inject.Inject
  */
 @RunWith(AndroidJUnit4ClassRunner::class)
 @HiltAndroidTest
-class FragmentSearchMoviesTest {
+class SearchMoviesFragmentTest {
 	companion object{
 		const val WAIT_TIME = 500L
 	}
@@ -264,7 +264,7 @@ class FragmentSearchMoviesTest {
 
 	private fun openFragment() {
 		val mockNavController = Mockito.mock(NavController::class.java)
-		launchFragmentInHiltContainer<FragmentSearchMovies>(
+		launchFragmentInHiltContainer<SearchMoviesFragment>(
 			null,
 			com.neugelb.themes.R.style.Theme_BaseAndroidApplication
 		) {

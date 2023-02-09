@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
  * Created by Rafiqul Hasan
  */
 @AndroidEntryPoint
-class FragmentSearchMovies : BaseFragment<FragmentSearchMoviesBinding>() {
+class SearchMoviesFragment : BaseFragment<FragmentSearchMoviesBinding>() {
 	private val viewModel: SearchMoviesViewModel by viewModels()
 
 	private var itemDecoration: GridItemDecoration? = null
@@ -77,7 +77,7 @@ class FragmentSearchMovies : BaseFragment<FragmentSearchMoviesBinding>() {
 		with(dataBinding) {
 			searchView.setOnQueryTextListener(
 				DebouncingQueryTextListener(
-					this@FragmentSearchMovies.lifecycle
+					this@SearchMoviesFragment.lifecycle
 				) { newText ->
 					viewModel.searchMovies(newText)
 				}
@@ -138,7 +138,7 @@ class FragmentSearchMovies : BaseFragment<FragmentSearchMoviesBinding>() {
 						loadState.refresh is LoadState.NotLoading && moviesAdapter.itemCount == 0
 					if (isListEmpty) {
 						dataBinding.viewEmpty.root.show()
-						dataBinding.viewEmpty.tvTitle.text = getString(R.string.msg_nothing_found)
+						dataBinding.viewEmpty.tvTitle.text = getString(R.string.msg_nothing_found_search)
 						dataBinding.viewEmpty.btnTryAgain.gone()
 					} else {
 						dataBinding.viewEmpty.root.gone()
