@@ -30,14 +30,14 @@ Like most of the applications I also have trade off decisions in this applicatio
 
 
 ## Demo
-<a href="url"><img src="https://github.com/Th3Alch3m1st/codingchallengestocard/blob/main/screenshots/app_demo.gif" height="480" width="230" />
+<a href="url"><img src="https://github.com/Th3Alch3m1st/MovieDB/tree/main/screenshots/app_demo.gif" height="480" width="230" />
   
 ## Screenshots
-<a href="url"><img src="https://github.com/Th3Alch3m1st/codingchallengestocard/blob/main/screenshots/screen_latest_movies.jpeg" height="480" width="230" />
-<a href="url"><img src="https://github.com/Th3Alch3m1st/codingchallengestocard/blob/main/screenshots/screen_latest_movies_dark.jpeg" height="480" width="230" />
-<a href="url"><img src="https://github.com/Th3Alch3m1st/codingchallengestocard/blob/main/screenshots/screen_movie_search.jpeg" height="480" width="230" />
-<a href="url"><img src="https://github.com/Th3Alch3m1st/codingchallengestocard/blob/main/screenshots/screen_movie_details.jpeg" height="480" width="230" />
-<a href="url"><img src="https://github.com/Th3Alch3m1st/codingchallengestocard/blob/main/screenshots/screen_settings.jpeg" height="480" width="230" />
+<a href="url"><img src="https://github.com/Th3Alch3m1st/MovieDB/tree/main/screenshots/screen_latest_movies.jpeg" height="480" width="230" />
+<a href="url"><img src="https://github.com/Th3Alch3m1st/MovieDB/tree/main/screenshots/screen_latest_movies_dark.jpeg" height="480" width="230" />
+<a href="url"><img src="https://github.com/Th3Alch3m1st/MovieDB/tree/main/screenshots/screen_movie_search.jpeg" height="480" width="230" />
+<a href="url"><img src="https://github.com/Th3Alch3m1st/MovieDB/tree/main/screenshots/screen_movie_details.jpeg" height="480" width="230" />
+<a href="url"><img src="https://github.com/Th3Alch3m1st/MovieDB/tree/main/screenshots/screen_settings.jpeg" height="480" width="230" />
 
 ## Architecture
 MVVM  with clean Architecture and moduler approch
@@ -55,8 +55,8 @@ MVVM  with clean Architecture and moduler approch
 - Full list: https://github.com/Th3Alch3m1st/MovieDB/blob/main/buildSrc/src/main/java/Dependencies.kt
 
 ## Project Structure
-  <a href="url"><img src="https://github.com/Th3Alch3m1st/codingchallengestocard/blob/main/screenshots/app_architechture.png" height="466" width="485" />
-  <a href="url"><img src="https://github.com/Th3Alch3m1st/codingchallengestocard/blob/main/screenshots/project_structure.png" height="466" width="320" />
+  <a href="url"><img src="https://github.com/Th3Alch3m1st/MovieDB/tree/main/screenshots/app_architechture.png" height="466" width="485" />
+  <a href="url"><img src="https://github.com/Th3Alch3m1st/MovieDB/tree/main/screenshots/project_structure.png" height="466" width="320" />
     
 ## Application Data flow
   <a href="url"><img src="https://github.com/Th3Alch3m1st/codingchallengestocard/blob/main/screenshots/flow.png" height="241" width="818" />  
