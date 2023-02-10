@@ -30,7 +30,7 @@ Like most of the applications I also have trade off decisions in this applicatio
 
 
 ## Demo
-<a href="url"><img src="https://github.com/Th3Alch3m1st/MovieDB/tree/main/screenshots/app_demo.gif" height="480" width="230" />
+<a href="url"><img src="https://github.com/Th3Alch3m1st/MovieDB/blob/main/screenshots/app_demo.gif" height="480" width="230" />
   
 ## Screenshots
 <a href="url"><img src="https://github.com/Th3Alch3m1st/MovieDB/tree/main/screenshots/screen_latest_movies.jpeg" height="480" width="230" />
