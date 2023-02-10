@@ -52,7 +52,7 @@ MVVM  with clean Architecture and moduler approch
 - Glide: Image loading
 - Unit testing: JUnit4, AssertJ, MockitoKotlin, Espresso Arch core testing (InstantTaskExecutorRule), Kotlinx coroutines test
 - UI testing: Espresso
-- Full list: https://github.com/Th3Alch3m1st/codingchallengestocard/blob/main/Dependencies.kt
+- Full list: https://github.com/Th3Alch3m1st/MovieDB/blob/main/buildSrc/src/main/java/Dependencies.kt
 
 ## Project Structure
   <a href="url"><img src="https://github.com/Th3Alch3m1st/codingchallengestocard/blob/main/screenshots/app_architechture.png" height="466" width="485" />
